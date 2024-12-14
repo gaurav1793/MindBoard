@@ -65,7 +65,7 @@ const Home = () => {
         </div>
         <div>
         <textarea
-        className='bg-black  text-white h-7 mt-8 rounded-2xl min-h-[350px] min-w-[500px] p-2'
+        className='bg-black  text-white h-7 mt-8 rounded-2xl min-h-[600px] min-w-[600px] p-2'
         placeholder='entetr text here'
         value={value}
         onChange={(e)=>SetValue(e.target.value)}

@@ -17,7 +17,7 @@ const Pastes = () => {
 
     }
     function handleView() {
-        
+
     }
     function handleShare() {
         const url = window.location.href;
@@ -45,24 +45,27 @@ const Pastes = () => {
                     FilterData.map(
                         (arr) => {
                             return (
-                                <div key={arr._id} className=' p-2 m-1 border rounded-2xl gap-2'>
-                                    <div>
-                                        {arr.title}
+                                <div key={arr._id} className='flex p-2 m-1 border rounded-2xl gap-2 place-content-between'>
+                                    <div className='gap-4 place-content-center'>
+                                        <div className='flex justify-center items-center' >
+                                            {arr.title}
+                                        </div>
+                                        <div>
+                                            {arr.content}
+                                        </div>
                                     </div>
                                     <div>
-                                        {arr.content}
-                                    </div>
+                                        <div className=' flex felx-row gap-3 place-content-around'>
 
-                                    <div className=' flex felx-row gap-3 border place-content-around'>
-
-                                        <button className='rounded-2xl' ><Link to={`/?pasteID=${arr?._id}`}>edit</Link></button>
-                                        <button className='rounded-2xl '><Link to={`/paste/${arr?._id}`}>view</Link></button>
-                                        <button className='rounded-2xl ' onClick={() => handleDelete(arr?._id)}>delete</button>
-                                        <button className='rounded-2xl ' onClick={() => handleCopy(arr?.content)}>copy</button>
-                                        <button className='rounded-2xl ' onClick={handleShare}>share</button>
-                                    </div>
-                                    <div>
-                                        {arr.createdAt}
+                                            <button className='rounded-2xl' ><Link to={`/?pasteID=${arr?._id}`}>edit</Link></button>
+                                            <button className='rounded-2xl '><Link to={`/paste/${arr?._id}`}>view</Link></button>
+                                            <button className='rounded-2xl ' onClick={() => handleDelete(arr?._id)}>delete</button>
+                                            <button className='rounded-2xl ' onClick={() => handleCopy(arr?.content)}>copy</button>
+                                            <button className='rounded-2xl ' onClick={handleShare}>share</button>
+                                        </div>
+                                        <div>
+                                            {arr.createdAt}
+                                        </div>
                                     </div>
                                 </div>
                             )

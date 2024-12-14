@@ -6,7 +6,7 @@ const ViewPaste = () => {
   const [title, SetTitle] = useState("");
   const [value, SetValue] = useState("");
   const {id}=useParams();
-  
+
   const allPaste = useSelector((state) => state.MindBoarding.pastes)
   useEffect(() => {
     if (id) {
@@ -37,7 +37,7 @@ const ViewPaste = () => {
       </div>
       <div>
         <textarea
-          className='bg-black  text-white h-7 mt-8 rounded-2xl min-h-[350px] min-w-[500px] p-2'
+          className='bg-black  text-white h-7 mt-8 rounded-2xl min-h-[600px] min-w-[600px] p-2'
           placeholder='entetr text here'
           value={value}
           onChange={(e) => SetValue(e.target.value)}
