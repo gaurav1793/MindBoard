@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-import { useDispatch } from 'react-redux';
+import React, { useEffect, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux';
 import { useSearchParams } from 'react-router-dom'
 import { AddToPaste, UpdateToPaste } from '../Features/MindBoardSlice';
 
@@ -13,6 +13,15 @@ const Home = () => {
     const dispatch = useDispatch();
 
     const pasteID=searchparams.get("pasteID");
+    const allPaste = useSelector((state)=>state.MindBoarding.pastes)
+
+    useEffect(()=>{
+        if(pasteID){
+            const paste = allPaste.find((arr)=>arr._id===pasteID);
+            SetTitle(paste.title)
+            SetValue(paste.content)
+        }
+    },[pasteID])
 
     function CreatePaste(){
         const paste={
@@ -56,7 +65,7 @@ const Home = () => {
         </div>
         <div>
         <textarea
-        className='bg-black h-7 mt-8 rounded-2xl min-h-[350px] min-w-[500px] p-2'
+        className='bg-black  text-white h-7 mt-8 rounded-2xl min-h-[350px] min-w-[500px] p-2'
         placeholder='entetr text here'
         value={value}
         onChange={(e)=>SetValue(e.target.value)}
